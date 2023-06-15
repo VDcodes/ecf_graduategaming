@@ -1,0 +1,83 @@
+/* https://www.palettedecouleur.net/?utm_source=Graphiste&utm_medium=blog&utm_campaign=outils-gratuits-palette */
+
+.fz-16{
+  font-size:16px!important;
+}
+
+.fz-24{
+  font-size:24px!important;
+}
+
+.fz-45{
+  font-size:45px!important;
+}
+
+.ml-auto {
+  margin-left: auto !important;
+}
+
+/* #logo{
+  width : 10%;
+  height : 10%;
+} */
+/* .navbar {
+  position: relative;
+} */
+
+/* .navbar .centered {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+} */
+
+.fa-circle-user{
+  color:black!important;
+  font-size : 20px;
+}
+
+.btn-icon .btn-icon-image {
+  width: 24px; /* Ajustez la taille de l'image selon vos besoins */
+  margin-right: 2px; /* Ajustez l'espace entre l'image et le texte selon vos besoins */
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-brand .fz-45 {
+  margin-left: 10px; /* Ajouter une marge à gauche pour l'espace entre l'image et le texte */
+}
+
+.custom-background {
+  /* background-image: url('../ecf_graduategaming/ciel_fond.jpg'); */
+  background-image: url('https://e0.pxfuel.com/wallpapers/848/214/desktop-wallpaper-material-design-green-and-black-geometric-shapes-lines-lollipop-geometry-creative-strips-green-background-abstract-art-for-with-resolution-high-quality.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.text-container {
+  margin-top: 40px; /* Ajouter une marge supérieure à la div */
+  margin-bottom: 30px;
+}
+
+ .btn-primary {
+  transition: color 0.3s;
+}
+
+ .a:hover {
+  color: #fff;
+} 
+
+.equal-height-cards .card {
+  height: 100%;
+}
+
+.card-section {
+  background-color: #8CD790;
+}
+/* 
+.footer-section {
+  background-color: white!important;
+} */
