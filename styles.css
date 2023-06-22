@@ -16,29 +16,14 @@
   margin-left: auto !important;
 }
 
-/* #logo{
-  width : 10%;
-  height : 10%;
-} */
-/* .navbar {
-  position: relative;
-} */
-
-/* .navbar .centered {
-  position: absolute;
-  top: 50%;
-  right: 0;
-  transform: translateY(-50%);
-} */
-
 .fa-circle-user{
   color:black!important;
   font-size : 20px;
 }
 
 .btn-icon .btn-icon-image {
-  width: 24px; /* Ajustez la taille de l'image selon vos besoins */
-  margin-right: 2px; /* Ajustez l'espace entre l'image et le texte selon vos besoins */
+  width: 24px; 
+  margin-right: 2px; 
 }
 
 .navbar-brand {
@@ -50,9 +35,9 @@
   margin-left: 10px; /* Ajouter une marge à gauche pour l'espace entre l'image et le texte */
 }
 
+
 .custom-background {
-  /* background-image: url('../ecf_graduategaming/ciel_fond.jpg'); */
-  background-image: url('https://e0.pxfuel.com/wallpapers/848/214/desktop-wallpaper-material-design-green-and-black-geometric-shapes-lines-lollipop-geometry-creative-strips-green-background-abstract-art-for-with-resolution-high-quality.jpg');
+  background-image: url('https://cdn.pixabay.com/photo/2022/03/31/10/43/plain-background-7102744_1280.png');
   background-size: cover;
   background-position: center;
 }
@@ -75,9 +60,25 @@
 }
 
 .card-section {
-  background-color: #8CD790;
+  background-color:  #77AF9C;
 }
-/* 
-.footer-section {
-  background-color: white!important;
-} */
+
+.footer-fixed {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.bg-image-vertical {
+  position: relative;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: auto 100%;
+  }
+  
+  @media (min-width: 1025px) {
+  .h-custom-2 {
+  height: 100%;
+  }
+  }
