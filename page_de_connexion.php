@@ -35,12 +35,13 @@
               if (response === 'existing_user') {
                 $('#errorMessage').html('<div class="alert alert-danger alert-dismissible" role="alert" id="errorMessage">Ce nom d\'utilisateur est déjà pris.</div>');
                 $('#errorModal').modal('show');
-              } else if (response === 'success') {
-                // $('#succesMessage').html('<div class="alert alert-success alert-dismissible" role="alert" id="succesMessage">OK</div>');
+              } else if (response === 'success') {                
                 // setTimeout(function() {
                 //   location.reload(); // Rafraîchir la page après 2 secondes
                 // }, 2000);
-                location.reload();
+                //  location.reload();
+                $('#registrationModal').modal('hide');
+                $('#succesMessage').html('<div class="alert alert-success alert-dismissible" role="alert" id="succesMessage">Compte crée, merci de vous connecter<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');                
               } else if (response === 'vide') {
                 $('#errorMessage').html('<div class="alert alert-danger alert-dismissible" role="alert" id="errorMessage">Merci de renseigner tous les champs.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
               } else {
@@ -112,6 +113,7 @@
               <button class="btn btn-primary btn-lg btn-block" id="loginButton" type="submit">Connexion</button>
               <hr class="my-4">
               <button class="btn btn-lg btn-block btn-primary" style="background-color: #dd4b39;" id="createAccountButton">Créer son compte</button>
+              <div id="succesMessage" class="alert alert-succes" role="alert"></div>
               <!-- Fenêtre modale d'inscription -->
               <div class="modal fade" id="registrationModal" tabindex="-1" role="dialog" aria-labelledby="registrationModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
@@ -153,8 +155,7 @@
                       </button>
                     </div>
                     <div class="modal-body">
-                      <div id="errorMessage" class="alert alert-danger" role="alert"> </div>
-                      <div id="successMessage" class="alert alert-succes" role="alert"> </div>
+                      <div id="errorMessage" class="alert alert-danger" role="alert"> </div>                      
                     </div>
                   </div>
                 </div>

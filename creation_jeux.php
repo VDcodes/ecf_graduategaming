@@ -1,5 +1,5 @@
 <?php
-// session_start();
+ session_start();
 
 // Vérification si le formulaire a été soumis
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -16,28 +16,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $dateFinCreation = $_POST['date_fin_creation'];
     $budget = $_POST['budget'];
     $statut = $_POST['statut'];
-    $type = $_POST['type'];
+    $type = $_POST['type_jeux'];
     $nbJoueur = $_POST['nb_joueur'];
-    $imageJeux = $_POST['image_jeux'];
+    // $imageJeux = $_POST['image_jeux'];
 
 
    //requête SQL pour insérer les valeurs dans la table "jeux"
-    $sql = "INSERT INTO jeux (date_creation, titre, descriptif, nom_studio, support, poids, score, moteur_jeux, date_maj, date_fin_creation, budget, statut, type, nb_joueur, image_jeux) VALUES ('$dateCreation', '$titre', '$descriptif', '$nomStudio', '$support', '$poids', '$score', '$moteurJeux', '$dateMaj', '$dateFinCreation', '$budget', '$statut', '$type', '$nbJoueur', '$imageJeux')";
+    $sql = "INSERT INTO jeux (date_creation, titre, descriptif, nom_studio, support, poids, score, moteur_jeux, date_maj, date_fin_creation, budget, statut, type_jeux, nb_joueur, image_jeux) VALUES ('$dateCreation', '$titre', '$descriptif', '$nomStudio', '$support', '$poids', '$score', '$moteurJeux', '$dateMaj', '$dateFinCreation', '$budget', '$statut', '$type', '$nbJoueur', '$imageJeux')";
 
     // Exécuter la requête SQL
 
     // Rediriger vers une page de confirmation ou effectuer d'autres actions nécessaires
-    header('Location: confirmation.php');
+    header('Location: main.php');
     exit;
 }
 ?>
 
 
-<?php include 'header.php'; ?>
 <title>Création de jeux - Gamesoft</title>
 <body>
-  <main role="main">
-    <div class="container">
+  <div class="container pt-5 mt-5">
       <h2 class="mt-5 mb-4">Création de jeux</h2>
       <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
         <div class="form-group">
@@ -110,23 +108,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
         <div class="form-group">
           <label for="type">Type :</label>
-          <input type="text" class="form-control" id="type" name="type" required>
+          <input type="text" class="form-control" id="type_jeux" name="type_jeux" required>
         </div>
         <div class="form-group">
           <label for="nb_joueur">Nombre de joueurs :</label>
           <input type="number" class="form-control" id="nb_joueur" name="nb_joueur" required>
         </div>
-        <div class="form-group">
+        <!-- <div class="form-group">
           <label for="image_jeux">Image du jeu :</label>
           <input type="file" class="form-control-file" id="image_jeux" name="image_jeux" required>
-        </div>
+        </div> -->
         <button type="submit" class="btn btn-primary">Enregistrer</button>
       </form>
     </div>
-  </main>
-
-  <?php include 'footer.html'; ?>
+  </div>
 </body>
 
-</html>
 

@@ -1,83 +1,47 @@
+<?php include 'header.php'; ?>
+<body style="background-color: #f0f0f0;">
+  <div class="container mt-5 pt-5">
+    <img src="utilisateur.png" alt="Profile Image" class="profile-image">
 
-<?php include 'header.php'; ?>  
+    <nav>
+      <div class="nav nav-tabs" id="nav-tab" role="tablist">
+        <a class="nav-item nav-link active" id="nav-Profil-tab" data-toggle="tab" href="#nav-Profil" role="tab" aria-controls="nav-Profil" aria-selected="true">Profil</a>
+       
+        <?php if ($_SESSION["typeUtilisateur"] == 1) { ?>
+          <a class="nav-item nav-link" id="nav-createCompteCM-tab" data-toggle="tab" href="#nav-createCompteCM" role="tab" aria-controls="nav-createCompteCM" aria-selected="false">Création de compte CM/PM</a>
+          <a class="nav-item nav-link" id="nav-createJeux-tab" data-toggle="tab" href="creation_jeux.php" role="tab" aria-controls="nav-createJeux" aria-selected="false">Création de Jeux</a>
+          <a class="nav-item nav-link" id="nav-modifJeux-tab" data-toggle="tab" href="#nav-modifJeux" role="tab" aria-controls="nav-modifJeux" aria-selected="false">Modification de Jeux</a>
+        <?php } ?> 
+        
+        <?php if ($_SESSION["typeUtilisateur"] == 2) { ?>
+          <a class="nav-item nav-link" id="nav-jeuxFavoris-tab" data-toggle="tab" href="#nav-jeuxFavoris" role="tab" aria-controls="nav-jeuxFavoris" aria-selected="false">Liste des jeux favoris</a>
+        <?php } ?>
 
-<body>
-    <div class="container bootstrap snippets bootdey">
-        <div class="row">
-            <div class="profile-nav col-md-3">
-                <div class="panel">
-                    <div class="user-heading round">
-                        <a href="#">
-                            <img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="">
-                        </a>
-                        <h1>Camila Smith</h1>
-                        <p>deydey@theEmail.com</p>
-                    </div>
+        <?php if ($_SESSION["typeUtilisateur"] == 3) { ?>
+          <a class="nav-item nav-link" id="nav-filActualite-tab" data-toggle="tab" href="#nav-filActualite" role="tab" aria-controls="nav-filActualite" aria-selected="false">Fil d'actualité</a>
+        <?php } ?>
 
-                    <ul class="nav nav-pills nav-stacked">
-                        <li class="active"><a href="#"><i class="fa fa-user"></i> Profile</a></li>
-                        <li><a href="#"><i class="fa fa-star"></i> Liste de jeux favoris <span class="label label-warning pull-right r-activity">9</span></a></li>
-                        <li><a href="#" onclick="editProfile()"><i class="fa fa-edit"></i> Modifier le profil</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="profile-info col-md-9">
-                <div class="panel">                  
-                        <ul class="nav nav-pills">
-                            <li>
-                                <a href="#"><i class="fa fa-map-marker"></i></a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-camera"></i></a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-film"></i></a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-microphone"></i></a>
-                            </li>
-                        </ul>
-                    </footer>
-                </div>
-                <div class="panel">
-                    <div class="bio-graph-heading">
-                        Aliquam ac magna metus. Nam sed arcu non tellus fringilla fringilla ut vel ispum. Aliquam ac magna metus.
-                    </div>
-                    <div class="panel-body bio-graph-info">
-                        <h1>Biographie</h1>
-                        <div class="row">
-                            <div class="bio-row">
-                                <p><span>Prénom </span>: Camila</p>
-                            </div>
-                            <div class="bio-row">
-                                <p><span>Nom </span>: Smith</p>
-                            </div>
-                            <div class="bio-row">
-                                <p><span>Pays </span>: Australie</p>
-                            </div>
-                            <div class="bio-row">
-                                <p><span>Date de naissance </span>: 13 Juillet 1983</p>
-                            </div>
-                            <div class="bio-row">
-                                <p><span>Profession </span>: Designer UI</p>
-                            </div>
-                            <div class="bio-row">
-                                <p><span>Email </span>: jsmith@flatlab.com</p>
-                            </div>
-                            <div class="bio-row">
-                                <p><span>Téléphone mobile </span>: (12) 03 4567890</p>
-                            </div>
-                            <div class="bio-row">
-                                <p><span>Téléphone fixe </span>: 88 (02) 123456</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    
-                </div>
-            </div>
-        </div>
+        <?php if ($_SESSION["typeUtilisateur"] == 4) { ?>
+          <a class="nav-item nav-link" id="nav-budget-tab" data-toggle="tab" href="#nav-budget" role="tab" aria-controls="nav-budget" aria-selected="false">Budget des jeux</a>
+          <a class="nav-item nav-link" id="nav-vueGlobale-tab" data-toggle="tab" href="#nav-vueGlobale" role="tab" aria-controls="nav-vueGlobale" aria-selected="false">Vue globale des jeux vidéos</a>
+          <a class="nav-item nav-link" id="nav-createJeux-tab" data-toggle="tab" href="creation_jeux.php" role="tab" aria-controls="nav-createJeux" aria-selected="false">Création de Jeux</a>
+          <?php } ?>
+
+     </div>
+    </nav>
+
+    <div class="tab-content" id="nav-tabContent">
+      <div class="tab-pane fade show active" id="nav-Profil" role="tabpanel" aria-labelledby="nav-Profil-tab">Contenu du Profil</div>
+      <div class="tab-pane fade" id="nav-jeuxFavoris" role="tabpanel" aria-labelledby="nav-jeuxFavoris-tab">Contenu de la Liste des jeux favoris</div>
+      <div class="tab-pane fade" id="nav-createCompteCM" role="tabpanel" aria-labelledby="nav-createCompteCM-tab">Contenu de la Création de compte CM/PM</div>
+      <div class="tab-pane fade" id="nav-createJeux" role="tabpanel" aria-labelledby="nav-createJeux-tab">Contenu de la Création de jeux</div>
+      <div class="tab-pane fade" id="nav-modifJeux" role="tabpanel" aria-labelledby="nav-modifJeux-tab">Contenu de la Modification de jeux</div>
     </div>
+  </div>
+  
+  <?php include 'footer.html'; ?>
 </body>
 </html>
+
+
+

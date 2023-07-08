@@ -13,30 +13,43 @@
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"></script>
 
+<style>
+  body {
+    padding-top: 40px; /* Ajoute une marge supérieure équivalente à la hauteur du header */
+  }
+</style>
+
 <header>
   <nav class="navbar navbar-light bg-dark text-white fixed-top col-12">      
-      <a href="main.php" class="navbar-brand text-white col-3 mr-0">
-        <img src="logo.png" class="d-inline-block align-top rounded-circle" alt="" width="60" height="60">
-        <span class="fz-45"> Gamesoft </span>
+    <a href="main.php" class="navbar-brand text-white col-3 mr-0">
+      <img src="logo.png" class="d-inline-block align-top rounded-circle" alt="" width="60" height="60">
+      <span class="fz-45"> Gamesoft </span>
+    </a>
+    <div class="text-center col-6">
+      <a class="p-2 text-white a:hover fz-24" href="vue_jeux.php">Jeux</a>
+      <a class="p-2 text-white a:hover fz-24" href="vue_budget.php">Actualités</a>
+      <a class="p-2 text-white a:hover fz-24" href="creation_jeux.php">Création</a>
+      <a class="p-2 text-white a:hover fz-24" href="espace_personnel.php">Support</a>
+    </div>
+    <div class="text-right col-3">
+      <a href="page_de_connexion.php" class="btn btn-primary btn-icon">
+        <i class="fa-solid fa-circle-user"></i>
+        <span class="ml-2">
+        <?php if (isset($_SESSION['nomUtilisateur'])){
+            echo $_SESSION['nomUtilisateur'];
+            //Pour test
+            switch ($_SESSION['typeUtilisateur']){
+              case 1 : echo " ADMIN";
+              break;
+              case 2 : echo " USER ";
+              break;
+            }
+          }else{
+            echo "Connexion";
+          }?>
+        </span>
       </a>
-      <div class="text-center col-6">
-        <a class="p-2 text-white a:hover fz-24" href="#">Jeux</a>
-        <a class="p-2 text-white a:hover fz-24" href="#">Actualités</a>
-        <a class="p-2 text-white a:hover fz-24" href="creation_jeux.php">Création</a>
-        <a class="p-2 text-white a:hover fz-24" href="espace_personnel.php">Support</a>
-      </div>
-      <div class="text-right col-3">
-        <a href="page_de_connexion.php" class="btn btn-primary btn-icon">
-          <i class="fa-solid fa-circle-user"></i>
-          <span class="ml-2">
-          <?php if (isset($_SESSION['nomUtilisateur'])){
-              echo $_SESSION['nomUtilisateur'];
-            }else{
-              echo "Connexion";
-            }?>
-          </span>
-        </a>
-      </div>      
+    </div>      
   </nav>
 </header>
 

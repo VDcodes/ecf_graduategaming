@@ -117,3 +117,22 @@
     padding: 20px;
     border: 1px solid #ccc;
 }
+
+.profile-image {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.nav-tabs .nav-link.active {
+  background-color: gray; 
+}
+
+.tab-pane.fade.show.active {
+  background-color: #00ff00; /* Couleur de fond du contenu de l'onglet actif */
+}
+
+.body {
+  background-color: #77AF9C;
+}
