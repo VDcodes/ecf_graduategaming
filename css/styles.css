@@ -1,0 +1,168 @@
+html,body {  
+  min-height: 100vh;
+}
+
+body {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+
+main {
+  flex: 1;
+}
+
+main.home {
+    background-image: url(https://i.pinimg.com/736x/90/93/07/9093075f208dc0bf3d2d7da5446f2962.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#section-actu {
+  box-shadow: 0 0 6px rgba(0,0,0,0.3);
+}
+
+main {
+  flex: 1;
+}
+
+.fz-16{
+  font-size:16px!important;
+}
+
+.fz-24{
+  font-size:24px!important;
+}
+
+.fz-36{
+  font-size:36px!important;
+}
+
+.fz-45{
+  font-size:45px!important;
+}
+
+.ml-auto {
+  margin-left: auto !important;
+}
+
+.fa-circle-user{
+  color:black!important;
+  font-size : 20px;
+}
+
+.btn-icon .btn-icon-image {
+  width: 24px; 
+  margin-right: 2px; 
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-btn {
+  margin-right: 4rem; /* Définir l'espacement supplémentaire */
+}
+
+.navbar-brand .fz-45 {
+  margin-left: 10px; /* Ajouter une marge à gauche pour l'espace entre l'image et le texte */
+}
+
+
+.text-container {
+  margin-top: 40px; /* Ajouter une marge supérieure à la div */
+  margin-bottom: 30px;
+}
+
+ .btn-primary {
+  transition: color 0.3s;
+}
+
+ .a:hover {
+  color: #fff;
+} 
+
+.equal-height-cards .card {
+  height: 100%;
+}
+
+.footer-fixed {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.bg-image-vertical {
+  position: relative;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: auto 100%;
+  }
+  
+  @media (min-width: 1025px) {
+  .h-custom-2 {
+  height: 100%;
+  }
+  }
+
+
+.tab {
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.tab button {
+    background-color: #f2f2f2;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.tab button:hover {
+    background-color: #ddd;
+}
+
+.tab button.active {
+    background-color: #ccc;
+}
+
+.tabcontent {
+    display: none;
+    padding: 20px;
+    border: 1px solid #ccc;
+}
+
+.profile-image {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.nav-tabs .nav-link.active {
+  background-color: gray; 
+}
+
+.tab-pane.fade.show.active {
+  background-color: #00ff00; /* Couleur de fond du contenu de l'onglet actif */
+}
+
+
+.pointer{
+  cursor : pointer!important;
+}
+
+.boxsizingBorder {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
