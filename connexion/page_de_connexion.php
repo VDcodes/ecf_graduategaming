@@ -1,88 +1,6 @@
 <title>Connexion</title>
 <?php include '../common/header.php'; ?>
 
-<script>
-  $(document).ready(function() {
-    $('#createAccountButton').click(function() {
-      $('#registrationModal').modal('show');
-    });
-
-    $('#registrationModal form').submit(function(event) {
-      event.preventDefault(); // Empêche le comportement par défaut de soumission du formulaire
-
-      // Vérifier si le formulaire est valide
-      if (this.checkValidity()) {
-        // Récupérer les valeurs des champs
-        var nom = $('#formName').val();
-        var email = $('#formEmail').val();
-        var motDePasse = $('#formPassword').val();
-
-        // Envoyer la requête AJAX
-        $.ajax({
-          type: 'POST',
-          url: '../bdd/inscription.php',
-          data: {
-            nom: nom,
-            email: email,
-            motDePasse: motDePasse
-          },
-          success: function(response) {
-            console.log(response);
-            if (response === 'existing_user') {
-              $('#errorMessage').html('<div class="alert alert-danger alert-dismissible" role="alert" id="errorMessage">Ce nom d\'utilisateur est déjà pris.</div>');
-              $('#errorModal').modal('show');
-            } else if (response === 'success') {
-              $('#registrationModal').modal('hide');
-              $('#succesMessage').html('<div class="alert alert-success alert-dismissible" role="alert" id="succesMessage">Compte crée, merci de vous connecter<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-            } else if (response === 'vide') {
-              $('#errorMessage').html('<div class="alert alert-danger alert-dismissible" role="alert" id="errorMessage">Merci de renseigner tous les champs.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-            } else {
-              $('#errorMessage').text('Une erreur s\'est produite lors de l\'inscription.');
-              $('#errorModal').modal('show');
-            }
-          },
-          error: function() {
-            console.log('Une erreur s\'est produite lors de la requête.');
-          }
-        });
-      }
-    });
-
-    $('#loginButton').click(function(e) {
-      e.preventDefault();
-
-      // Récupérer les valeurs des champs
-      var username = $('#typeEmailX-2').val();
-      var password = $('#typePasswordX-2').val();
-
-      // Envoyer la requête AJAX vers connexion.php
-      $.ajax({
-        url: '../bdd/connexion.php',
-        method: 'POST',
-        data: {
-          nom: username,
-          motDePasse: password
-        },
-        success: function(response) {
-          if (response === 'success') {
-            // Rediriger vers la page de succès de connexion
-            window.location.href = '../main/main.php';
-          } else {
-            // Afficher le message d'erreur dans la modale
-            $('#errorMessage').text('Nom d\'utilisateur ou mot de passe incorrect');
-            $('#errorModal').modal('show');
-          }
-        },
-        error: function() {
-          console.log('Une erreur s\'est produite lors de la requête.');
-        }
-      });
-    });
-  });
-</script>
-</head>
-
-<body>
   <section class="vh-100" style="background-color: #77AF9C;">
     <div class="container py-5 h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
@@ -116,7 +34,7 @@
                       </button>
                     </div>
                     <div class="modal-body">
-                      <form id="registrationForm" novalidate onclick="creationCompte('compteUtilisateur')">
+                      <form id="registrationForm" novalidate">
                         <div class="form-outline mb-4">
                           <label class="form-label" for="formName">Nom</label>
                           <input type="text" id="formName" class="form-control form-control-lg" name="username" required />
@@ -129,7 +47,7 @@
                           <label class="form-label" for="formPassword">Mot de passe</label>
                           <input type="password" id="formPassword" class="form-control form-control-lg" name="password" required />
                         </div>
-                        <button class="btn btn-primary btn-lg btn-block" type="submit">S'inscrire</button>
+                        <button class="btn btn-primary btn-lg btn-block" type="button" onclick="creationCompte('compteUtilisateur')">S'inscrire</button>
                       </form>
                     </div>
                   </div>

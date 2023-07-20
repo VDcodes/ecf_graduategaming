@@ -23,12 +23,12 @@
 
         <!-- Community Manager -->
         <?php if ($_SESSION["typeUtilisateur"] == 3) { ?>
-          <a class="nav-item nav-link" id="nav-vue_actualites-tab" data-page="espacePersonnel/vue_actualites.php" data-toggle="tab" href="#nav-vue_actualites" role="tab" aria-controls="nav-vue_actualites" aria-selected="false">Gestion des actualités</a>
+          <a class="nav-item nav-link" id="nav-vue_actualites-tab" data-page="vue_actualites.php" data-toggle="tab" href="#nav-vue_actualites" role="tab" aria-controls="nav-vue_actualites" aria-selected="false">Gestion des actualités</a>
         <?php } ?>
 
         <!-- Producteur -->
         <?php if ($_SESSION["typeUtilisateur"] == 4) { ?>
-          <a class="nav-item nav-link" id="nav-budget-tab" data-page="espacePersonnel/vue_budget.php" data-toggle="tab" href="#nav-budget" role="tab" aria-controls="nav-budget" aria-selected="false">Budget des jeux</a>
+          <a class="nav-item nav-link" id="nav-budget-tab" data-page="vue_budget.php" data-toggle="tab" href="#nav-budget" role="tab" aria-controls="nav-budget" aria-selected="false">Budget des jeux</a>
           <a class="nav-item nav-link" id="nav-createJeux-tab" data-toggle="tab" href="creation_jeux.php" role="tab" aria-controls="nav-createJeux" aria-selected="false">Création de Jeux</a>
         <?php } ?>
 
@@ -36,19 +36,28 @@
     </nav>
 
     <script>
-      $('a[data-toggle="tab"]').on('shown.bs.tab', function(event) {
-        console.log("Onglet activé :", event.target);
+  $('a[data-toggle="tab"]').on('shown.bs.tab', function(event) {
+    console.log("Onglet activé :", event.target);
 
-        $('#espace-personnel-content').empty();
+    $('#espace-personnel-content').empty();
 
-        const pageUrl = $(event.target).attr('data-page');
-        console.log("Chargement ajax de la page :", pageUrl);
-        $('#espace-personnel-content').load(pageUrl);
-      })
-    </script>
+    const pageUrl = $(event.target).attr('data-page');
+    console.log("Chargement ajax de la page :", pageUrl);
+    $('#espace-personnel-content').load(pageUrl);
+  });
+</script>
 
     <div class="tab-content" id="espace-personnel-content">
-
+    <?php
+  // Vérifier si l'utilisateur est connecté
+  if (isset($_SESSION['idUtilisateur'])) {
+    // Inclure le contenu du profil si l'utilisateur est connecté
+    include 'profil.php';
+  } else {
+    // Afficher le message de connexion si l'utilisateur n'est pas connecté
+    echo '<p>Veuillez vous connecter pour accéder à votre profil.</p>';
+  }
+  ?>
     </div>
   </main>
 

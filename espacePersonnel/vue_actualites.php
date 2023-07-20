@@ -4,7 +4,7 @@
   <div class="container mt-5">
     <h2>Gestion des actualités</h2>
 
-    <button type="button" class="btn btn-primary" id="hrefPost" href="#" data-url="espacePersonnel/editActualite.php" onclick="editActu(0)">Ajouter une actualité</button>
+    <button type="button" class="btn btn-primary" id="hrefPost" href="#" data-url="editActualite.php" onclick="editActu(0)">Ajouter une actualité</button>
 
     <table class="table table-striped mt-2">
       <thead class="thead-dark">
@@ -32,7 +32,7 @@
 
           echo "<tr>";
           echo "  <td>$titre</td>";
-          echo "  <td>".reduireChaineMot(utf8_encode($descriptif),40)."</td>";
+          echo "  <td>".reduireChaineMot($descriptif,40)."</td>";
           echo "  <td>$date_creation</td>";
           echo "  <td class=\"text-center\"><a id=\"hrefPost\" href=\"#\" data-url=\"espacePersonnel/editActualite.php\" onclick=\"editActu('".$id_actualites."');\"><i class=\"fas fa-pencil-alt text-dark\"></i></a></td>";    
           echo "</tr>";

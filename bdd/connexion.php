@@ -34,6 +34,18 @@ if ($result->num_rows === 1) {
     $_SESSION['idUtilisateur'] = $valeur_idUtilisateur;
     $_SESSION['nomUtilisateur'] = $nom;
     $_SESSION["typeUtilisateur"] = $valeur_typeUtilisateur; //1 : Admin; 2 : Utilisateur; 3 : Producteur; 4 : Community Manager
+   
+      // Récupérer et stocker l'email de l'utilisateur
+  $stmt_email = $conn->prepare('SELECT email_utilisateur FROM utilisateur WHERE nom_utilisateur = ?');
+  $stmt_email->bind_param('s', $nom);
+  $stmt_email->execute();
+  $result_email = $stmt_email->get_result();
+
+  if ($result_email->num_rows === 1) {
+    $row_email = $result_email->fetch_assoc();
+    $_SESSION['emailUtilisateur'] = $row_email['email_utilisateur'];
+  }
+  
     echo 'success';
   } else {
     // Mot de passe incorrect

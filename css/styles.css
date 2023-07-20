@@ -1,3 +1,4 @@
+
 html,body {  
   min-height: 100vh;
 }
@@ -14,16 +15,14 @@ main {
 }
 
 main.home {
-    background-image: url(https://i.pinimg.com/736x/90/93/07/9093075f208dc0bf3d2d7da5446f2962.jpg);
+  
+    background-image: url('../img/fond.jpg');
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-#section-actu {
-  box-shadow: 0 0 6px rgba(0,0,0,0.3);
-}
 
 main {
   flex: 1;
@@ -151,11 +150,6 @@ main {
 .nav-tabs .nav-link.active {
   background-color: gray; 
 }
-
-.tab-pane.fade.show.active {
-  background-color: #00ff00; /* Couleur de fond du contenu de l'onglet actif */
-}
-
 
 .pointer{
   cursor : pointer!important;

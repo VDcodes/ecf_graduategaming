@@ -14,7 +14,9 @@
     <!--Container Modale pour la vue détaillée d'un jeu vidéo -->
     <div class="modal" id="gameModal" tabindex="-1" role="dialog" aria-labelledby="gameModalLabel" aria-hidden="true"></div>
 
-    <section id="section-actu" class="my-5 py-3">
+    <hr width="90%">
+
+    <section id="section-actu" class="py-3">
       <!-- Liste des actu remplis par l'ajax plus bas -->
       <div id="newsList" class="container">
         <?php include 'actualites.php' ?>

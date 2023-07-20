@@ -1,9 +1,14 @@
 <?php
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 include '../bdd/connexionBDD.php';
 
+
 // Récupérer les informations de l'utilisateur à partir de la base de données
-$user_id = $_SESSION['id_utilisateur'];
+$user_id = $_SESSION['idUtilisateur'];
+$user_name = $_SESSION['nomUtilisateur'];
+$user_email = $_SESSION['emailUtilisateur'];
 $sql = "SELECT `id_utilisateur`, `nom_utilisateur`, `mdp_utilisateur`, `email_utilisateur` FROM `utilisateur` WHERE `id_utilisateur` = $user_id";
 $result = $conn->query($sql);
 
@@ -29,11 +34,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($conn->query($update_sql) === TRUE) {
         // Mettre à jour les informations de l'utilisateur dans la session
-        $_SESSION['nom_utilisateur'] = $new_name;
-        $_SESSION['email_utilisateur'] = $new_email;
+        $user_name = $new_name;
+        $user_email = $new_email;
 
         // Rediriger vers la page du profil après la mise à jour
-        header("Location: profil.php");
+        header("Location: espace_personnel.php");
         exit;
     } else {
         echo "Erreur lors de la mise à jour : " . $conn->error;
@@ -55,13 +60,13 @@ $conn->close();
 </head>
 
 <body>
-    <h1>Bienvenue sur votre profil, <?php echo $_SESSION['nom_utilisateur']; ?></h1>
+    <h1>Bienvenue sur votre profil, <?php echo $user_name; ?></h1>
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
         <label for="new_name">Nom :</label>
-        <input type="text" name="new_name" value="<?php echo $user['nom_utilisateur']; ?>"><br>
+        <input type="text" name="new_name" value="<?php echo $user_name; ?>"><br>
 
         <label for="new_email">Email :</label>
-        <input type="email" name="new_email" value="<?php echo $user['email_utilisateur']; ?>"><br>
+        <input type="email" name="new_email" value="<?php echo $user_email; ?>"><br>
 
         <!-- Ajoutez le champ pour le mot de passe ici si nécessaire -->
         <!-- <label for="new_password">Mot de passe :</label>
