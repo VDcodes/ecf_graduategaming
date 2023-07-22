@@ -28,9 +28,7 @@ if ($result->num_rows === 1) {
   if (password_verify($motDePasse, $hashedPassword)) {
     // Connexion réussie
     session_start();
-    if (strlen($nom) > 12) {
-      $nom = substr($nom, 0, 12);
-    }
+
     $_SESSION['idUtilisateur'] = $valeur_idUtilisateur;
     $_SESSION['nomUtilisateur'] = $nom;
     $_SESSION["typeUtilisateur"] = $valeur_typeUtilisateur; //1 : Admin; 2 : Utilisateur; 3 : Producteur; 4 : Community Manager
@@ -41,11 +39,9 @@ if ($result->num_rows === 1) {
   $stmt_email->execute();
   $result_email = $stmt_email->get_result();
 
-  if ($result_email->num_rows === 1) {
-    $row_email = $result_email->fetch_assoc();
-    $_SESSION['emailUtilisateur'] = $row_email['email_utilisateur'];
-  }
-  
+  $row_email = $result_email->fetch_assoc();
+  $_SESSION['emailUtilisateur'] = $row_email['email_utilisateur'];
+
     echo 'success';
   } else {
     // Mot de passe incorrect

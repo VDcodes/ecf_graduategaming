@@ -1,15 +1,15 @@
 <?php
-// Paramètres de connexion à la base de données local
-$servername = "localhost";
-$username = "root";
-$password = "root";
-$database = "ecf_g";
+//Paramètres de connexion à la base de données local
+// $servername = "localhost";
+// $username = "root";
+// $password = "root";
+// $database = "ecf_g";
 
 //Prod
-// $servername = "localhost";
-// $username = "kcxqbyac_root";
-// $password = "Wishmasterdu31$";
-// $database = "kcxqbyac_ecf_g";
+$servername = "localhost";
+$username = "kcxqbyac_root";
+$password = "Wishmasterdu31$";
+$database = "kcxqbyac_ecf_g";
 
 // Connexion à la base de données
 $conn = new mysqli($servername, $username, $password, $database);

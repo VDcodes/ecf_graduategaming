@@ -21,7 +21,7 @@
       <option value="4">Producteur(trice)</option>
     </select>
   </div>
-  <button type="submit" class="btn btn-primary" onclick="creationCompte('compteCMPM')">Enregistrer</button> 
+  <button type="button" class="btn btn-primary" onclick="creationCompte('compteCMPM')">Enregistrer</button> 
   <div id="errorMessage" class="col-4 mt-2 pl-0" role="alert"> </div>
 </form>
 
@@ -42,7 +42,7 @@
     <tbody>
       <?php
       // Requête SQL pour récupérer les informations du budget de chaque jeu vidéo
-      $sql = "SELECT nom_utilisateur,email_utilisateur,valeur_typeUtilisateurs FROM utilisateur WHERE valeur_typeUtilisateurs IN (3,4) ORDER BY date_inscription_u";
+      $sql = "SELECT nom_utilisateur,email_utilisateur,valeur_typeUtilisateurs FROM utilisateur WHERE valeur_typeUtilisateurs IN (3,4)";
 
       $result = $conn->query($sql);
       // Vérifier si des données ont été trouvées
